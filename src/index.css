@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Golf App Design System - Chunky & Playful v2.0 */
+/* Cache-busting: Updated color palette and chunky design system */
+:root {
+  /* Fun & Contrasting Color Palette */
+  --golf-green: #059669;
+  --golf-green-light: #10b981;
+  --golf-green-bright: #34d399;
+  --golf-blue: #2563eb;
+  --golf-blue-light: #3b82f6;
+  --golf-blue-bright: #60a5fa;
+  --golf-sand: #fbbf24;
+  --golf-sand-light: #fde68a;
+  --golf-sand-dark: #f59e0b;
+  --golf-white: #ffffff;
+  --golf-gray: #374151;
+  --golf-gray-light: #6b7280;
+  --golf-gray-dark: #1f2937;
+  
+  /* Vibrant Accent Colors */
+  --golf-yellow: #fbbf24;
+  --golf-orange: #f97316;
+  --golf-red: #ef4444;
+  --golf-purple: #8b5cf6;
+  --golf-pink: #ec4899;
+  --golf-cyan: #06b6d4;
+  
+  /* Shadows and effects */
+  --shadow-chunky: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  --shadow-soft: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  --border-radius-chunky: 16px;
+  --border-radius-medium: 12px;
+  --border-radius-small: 8px;
+}
+
+/* Custom base styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, var(--golf-sand-light) 0%, #fef3c7 100%);
+    background-attachment: fixed;
+    color: var(--golf-gray-dark);
+  }
+  
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Prevent layout shift during loading */
+  .layout-container {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Chunky card component */
+  .chunky-card {
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-chunky);
+    box-shadow: var(--shadow-chunky);
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .chunky-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Chunky button component */
+  .chunky-button {
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-chunky);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .chunky-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .chunky-button:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Button variants */
+  .chunky-button-primary {
+    background: var(--golf-green-bright);
+    color: var(--golf-white);
+    border-color: var(--golf-green);
+  }
+
+  .chunky-button-secondary {
+    background: var(--golf-blue-bright);
+    color: var(--golf-white);
+    border-color: var(--golf-blue);
+  }
+
+  .chunky-button-accent {
+    background: var(--golf-yellow);
+    color: var(--golf-gray-dark);
+    border-color: var(--golf-sand-dark);
+  }
+
+  .chunky-button-danger {
+    background: var(--golf-red);
+    color: var(--golf-white);
+    border-color: #dc2626;
+  }
+
+  /* Chunky input component */
+  .chunky-input {
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-soft);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    color: var(--golf-gray-dark);
+  }
+
+  .chunky-input:focus {
+    outline: none;
+    border-color: var(--golf-blue-bright);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .chunky-input::placeholder {
+    color: var(--golf-gray-light);
+  }
+
+  /* Chunky select component */
+  .chunky-select {
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-soft);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    color: var(--golf-gray-dark);
+    cursor: pointer;
+  }
+
+  .chunky-select:focus {
+    outline: none;
+    border-color: var(--golf-blue-bright);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Chunky checkbox component */
+  .chunky-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-small);
+    background: var(--golf-white);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .chunky-checkbox:checked {
+    background: var(--golf-green-bright);
+    border-color: var(--golf-green);
+  }
+
+  /* Navigation styles - updated for chunky design */
+  .nav-link {
+    @apply flex items-center px-4 py-3 text-gray-700 rounded-xl transition-all duration-200;
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    box-shadow: var(--shadow-chunky);
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-link:hover {
+    background: var(--golf-green-bright);
+    color: var(--golf-white);
+    transform: translateY(-1px);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .nav-link.active {
+    background: var(--golf-green-bright);
+    color: var(--golf-white);
+    border-color: var(--golf-green);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Table styles - updated for chunky design */
+  .chunky-table {
+    background: var(--golf-white);
+    border: 3px solid var(--golf-gray-dark);
+    border-radius: var(--border-radius-chunky);
+    box-shadow: var(--shadow-chunky);
+    overflow: hidden;
+  }
+
+  .chunky-table th {
+    background: var(--golf-green-bright);
+    color: var(--golf-white);
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid var(--golf-gray-dark);
+  }
+
+  .chunky-table td {
+    padding: 1rem;
+    border-bottom: 2px solid var(--golf-gray-light);
+    background: var(--golf-white);
+  }
+
+  .chunky-table tbody tr:hover {
+    background: var(--golf-sand-light);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+  }
+
+  /* Golf-themed icons */
+  .golf-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Status indicators */
+  .status-flag {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--golf-gray-dark);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .status-flag.success {
+    background: var(--golf-green-bright);
+  }
+
+  .status-flag.warning {
+    background: var(--golf-yellow);
+  }
+
+  .status-flag.error {
+    background: var(--golf-red);
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .chunky-card {
+      padding: 1rem;
+      border-radius: var(--border-radius-medium);
+    }
+    
+    .chunky-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.bounce {
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
